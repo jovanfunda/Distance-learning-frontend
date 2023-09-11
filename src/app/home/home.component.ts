@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../_services/user.service';
+import { CourseService } from '../_services/course.service';
+import { Course } from '../_models/course';
 
 @Component({
   selector: 'app-home',
@@ -7,18 +8,18 @@ import { UserService } from '../_services/user.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  content?: string;
+  courses? : Course[];
 
-  constructor(private userService: UserService) { }
+  constructor(private courseService: CourseService) { }
 
   ngOnInit(): void {
-    this.userService.getPublicContent().subscribe(
-      data => {
-        this.content = data;
+    this.courseService.courses_home().subscribe({
+      next: (data) => {
+        this.courses = data;
       },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
+       error: (err) => {
+      console.log(err);
+    }
+  })
   }
 }

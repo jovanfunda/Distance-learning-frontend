@@ -1,5 +1,9 @@
-<div class="container">
-    <header class="jumbotron">
-      <p>{{ content }}</p>
-    </header>
+<h1 class="title">Distance learning</h1>
+<div class="course-list">
+  <div *ngFor="let course of courses" class="course">
+    <img *ngIf="course.pictureURL" [src]="course.pictureURL" alt="{{ course.name }} Image" class="course-image">
+    <h2 class="course-name">{{ course.name }}</h2>
+    <p class="professor">Professor: {{ course.fullOwnerName }}</p>
+    <p *ngIf="course.description" class="description">{{ course.description }}</p>
   </div>
+</div>

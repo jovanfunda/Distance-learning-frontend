@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+.container {
+    margin: 50px auto; /* Adjust the margin size as needed */
+    max-width: 80%; /* Adjust the max width if desired */
+    padding: 20px; /* Adjust the padding if needed */
+    background-color: #fff; /* Optional: Set a background color for the container */
+    border: 1px solid #ccc; /* Optional: Add a border around the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+  }

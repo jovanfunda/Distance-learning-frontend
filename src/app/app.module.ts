@@ -18,7 +18,7 @@ import { ProfileComponent } from './profile/profile.component';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
