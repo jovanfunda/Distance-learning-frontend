@@ -5,4 +5,4 @@ export interface Course {
     pictureURL: string;
     description: string;
     enrolled: boolean
-  }
+}

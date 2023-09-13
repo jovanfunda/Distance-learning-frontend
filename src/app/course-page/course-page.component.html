@@ -1,2 +1,9 @@
 <h2>{{ course.name }}</h2>
-<p>{{ course.description}} </p>
+<p>{{ course.description }} </p>
+
+<div class="container" *ngIf="lectures.length > 0">
+    <div class="lecture-card" *ngFor="let lecture of lectures">
+      <h2>{{ lecture.title }}</h2>
+      <p>{{ lecture.data }}</p>
+    </div>
+</div>

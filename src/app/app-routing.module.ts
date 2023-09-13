@@ -5,12 +5,15 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { CoursePageComponent } from './course-page/course-page.component';
+import { AdminGuard } from './admin-page/admin.guard';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'course/:id', component: CoursePageComponent },
+  { path: 'admin', component: AdminPageComponent, canActivate: [AdminGuard] },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
