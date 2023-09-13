@@ -13,19 +13,22 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CourseService {
-  private courses: Course[] = [];
 
   constructor(private http: HttpClient) { }
 
-  courses_home(): Observable<any> {
+  getCourses(): Observable<any> {
     return this.http.get(AUTH_API + 'api/course', httpOptions);
   }
 
-  setCourses(data: any) {
-    this.courses = data;
+  getMyCourses(): Observable<any> {
+    return this.http.get(AUTH_API + "api/course/myCourses", httpOptions)
   }
 
-  getCourses() {
-    return this.courses;
+  getCourse(id: number): Observable<any> {
+    return this.http.get<any>(AUTH_API + `api/course/${id}`, httpOptions);
+  }
+
+  enrollCourse(course: Course): Observable<any> {
+    return this.http.put(AUTH_API + 'api/course/startEnrollment', course.name, httpOptions);
   }
 }

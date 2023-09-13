@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { ProfileComponent } from './profile/profile.component';
+import { CoursePageComponent } from './course-page/course-page.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
     HomeComponent,
     RegisterComponent,
     ProfileComponent,
+    CoursePageComponent,
   ],
   imports: [
     BrowserModule,

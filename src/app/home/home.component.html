@@ -1,9 +1,21 @@
 <h1 class="title">Distance learning</h1>
 <div class="course-list">
+  <hr>
+  <h2>Moji kursevi</h2>
+  <div *ngFor="let course of enrolledCourses" class="course">
+    <img *ngIf="course.pictureURL" [src]="course.pictureURL" alt="{{ course.name }} Image" class="course-image">
+    <h2 class="course-name">{{ course.name }}</h2>
+    <p class="professor">Professor: {{ course.fullOwnerName }}</p>
+    <p *ngIf="course.description" class="description">{{ course.description }}</p>
+    <button class="enroll-button" (click)='navigateToCourse(course)'>Kliknite za pristup kursu</button>
+  </div>
+  <hr>
+  <h2>Dostupni kursevi</h2>
   <div *ngFor="let course of courses" class="course">
     <img *ngIf="course.pictureURL" [src]="course.pictureURL" alt="{{ course.name }} Image" class="course-image">
     <h2 class="course-name">{{ course.name }}</h2>
     <p class="professor">Professor: {{ course.fullOwnerName }}</p>
     <p *ngIf="course.description" class="description">{{ course.description }}</p>
+    <button class="enroll-button" (click)='navigateToCourse(course)'>Kliknite za pristup kursu</button>
   </div>
 </div>
