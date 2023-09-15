@@ -9,16 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  courses = [] as Course[];
-  enrolledCourses = [] as Course[];
-  notEnrolledCourses = [] as Course[];
 
-  constructor(private courseService: CourseService, private router: Router) { }
+  constructor(public courseService: CourseService, private router: Router) { }
 
   ngOnInit(): void {
     this.courseService.getCourses().subscribe({
       next: (data) => {
-        this.courses = data;
+        this.courseService.allCourses = data;
       },
        error: (err) => {
       console.log(err);
@@ -27,13 +24,13 @@ export class HomeComponent implements OnInit {
 
     this.courseService.getMyCourses().subscribe({
       next: (myCourses) => {
-        this.enrolledCourses = myCourses;
+        this.courseService.enrolledCourses = myCourses;
+        this.courseService.notEnrolledCourses = this.courseService.allCourses;
 
-        this.notEnrolledCourses = this.courses;
-        for(let i = 0; i < this.courses.length; i++) {
-          for(let j = 0; j < this.enrolledCourses.length; j++) {
-            if(this.courses[i].id == this.enrolledCourses[j].id) {
-              this.notEnrolledCourses.splice(i, 1);
+        for(let i = 0; i < this.courseService.allCourses.length; i++) {
+          for(let j = 0; j < this.courseService.enrolledCourses.length; j++) {
+            if(this.courseService.allCourses[i].id == this.courseService.enrolledCourses[j].id) {
+              this.courseService.notEnrolledCourses.splice(i, 1);
            }
          }
         }
@@ -52,9 +49,9 @@ export class HomeComponent implements OnInit {
     this.courseService.enrollCourse(course).subscribe({
       next: (isSuccessful) => {
         if (isSuccessful) {
-          this.courses = this.courses.filter(element => element.id !== course.id);
-          this.enrolledCourses.push(course);
-          this.notEnrolledCourses = this.notEnrolledCourses.filter(item => item.id != course.id)
+          this.courseService.allCourses = this.courseService.allCourses.filter(element => element.id !== course.id);
+          this.courseService.enrolledCourses.push(course);
+          this.courseService.notEnrolledCourses = this.courseService.notEnrolledCourses.filter(item => item.id != course.id)
         }
       },
       error: (err) => {

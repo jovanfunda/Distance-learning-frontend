@@ -55,16 +55,3 @@
 .enroll-button:hover {
     background-color: #0056b3;
 }
-
-.enrollment-message {
-    color: #28A745; /* Green color for success message */
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-/* 
-TODO
-kad se zgrabe svi kursevi najbolje da se proveri odmah koje ja slusam i da ih oznacimo sa enrolled
-napraviti da baza ne moze da ima vise istih enrollmenta (student id i course id)
-
-*/

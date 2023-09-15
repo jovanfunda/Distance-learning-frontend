@@ -14,6 +14,11 @@ const httpOptions = {
 })
 export class CourseService {
 
+  myOwnCourses = [] as Course[];
+  enrolledCourses = [] as Course[];
+  notEnrolledCourses = [] as Course[];
+  allCourses = [] as Course[];
+  
   constructor(private http: HttpClient) { }
 
   getCourses(): Observable<any> {

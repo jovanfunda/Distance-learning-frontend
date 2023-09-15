@@ -116,10 +116,6 @@ export class AdminPageComponent {
   }
 
   assignProfessor() {
-    this.courseService.assignProfessor(this.selectedProfessorForAssignment.email, this.selectedCourseForAssignment.name).subscribe({
-      next: (data) => {
-
-      }
-    })
+    this.courseService.assignProfessor(this.selectedProfessorForAssignment.email, this.selectedCourseForAssignment.name).subscribe({})
   }
 }

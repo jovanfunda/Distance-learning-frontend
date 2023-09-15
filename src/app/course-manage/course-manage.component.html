@@ -1,1 +1,7 @@
-<p>course-manage works!</p>
+<h2>Izaberi kurs koji zelis da izmenis</h2>
+
+<div class="course-list">
+    <div *ngFor="let course of courseService.myOwnCourses" class="course" (click)="editCourse(course)">
+        <h2 class="course-name">{{ course.name }}</h2>
+    </div>
+</div>

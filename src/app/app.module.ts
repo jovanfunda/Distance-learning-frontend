@@ -14,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { CoursePageComponent } from './course-page/course-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { CourseManageComponent } from './course-manage/course-manage.component';
+import { EditCourseComponent } from './edit-course/edit-course.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CourseManageComponent } from './course-manage/course-manage.component';
     ProfileComponent,
     CoursePageComponent,
     AdminPageComponent,
-    CourseManageComponent
+    CourseManageComponent,
+    EditCourseComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,6 @@ export class AppComponent implements OnInit {
 
   isLoggedIn = false;
   userEmail?: string;
-  myOwnCourses = [] as Course[];
 
   constructor(private tokenStorageService: TokenStorageService, private authService: AuthService, private courseService: CourseService) { }
 
@@ -26,7 +25,7 @@ export class AppComponent implements OnInit {
 
     this.courseService.getMyOwnCourses().subscribe({
       next: (myOwnCourses) => {
-        this.myOwnCourses = myOwnCourses;
+        this.courseService.myOwnCourses = myOwnCourses;
       } 
     })
   }
@@ -41,6 +40,6 @@ export class AppComponent implements OnInit {
   }
 
   isProfessor() {
-    return this.myOwnCourses.length > 0;
+    return this.courseService.myOwnCourses.length > 0;
   }
 }

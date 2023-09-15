@@ -1,0 +1,52 @@
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2em; /* Adjust the font size as needed */
+  font-weight: bold; /* Optional: Make the title bold */
+  margin-bottom: 10px; /* Optional: Add some space below the title */
+  color: #007BFF; /* Primary color */
+}
+
+.course-list {
+  display: flex;
+  flex-direction: column;
+  max-width: 67%;
+  gap: 20px;
+}
+
+.course {
+  flex-basis: calc(33.33% - 20px); /* Three courses per row with 20px gap */
+  background-color: #f8f9fa;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.course:hover {
+  background-color: #e9ecef; /* Change the background color on hover */
+}
+
+.course-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.course-name {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.enroll-button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.enroll-button:hover {
+  background-color: #0056b3;
+}
