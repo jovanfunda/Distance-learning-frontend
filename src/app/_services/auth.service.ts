@@ -34,4 +34,22 @@ export class AuthService {
   isAdmin(): boolean {
     return this.tokenStorageService.getUser().role == "ROLE_ADMIN";
   }
+
+  isProfessor(): Observable<any> {
+    return this.http.get(AUTH_API + "api/isProfessor/" + this.tokenStorageService.getUser().email, httpOptions);
+  }
+
+  getAdmins(): Observable<any> {
+    return this.http.get(AUTH_API + "api/admin", httpOptions)
+  }
+
+  demoteAdmin(email: string): Observable<any> {
+    console.log("demote " + email)
+    return this.http.put(AUTH_API + "api/removeAdmin", email, httpOptions)
+  }
+
+  promoteToAdmin(email: string): Observable<any> {
+    console.log("promote " + email)
+    return this.http.put(AUTH_API + "api/promoteToAdmin", email, httpOptions)
+  }
 }

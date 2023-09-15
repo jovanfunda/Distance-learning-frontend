@@ -24,6 +24,10 @@ export class CourseService {
     return this.http.get(AUTH_API + "course/myCourses", httpOptions)
   }
 
+  getMyOwnCourses(): Observable<any> {
+    return this.http.get(AUTH_API + "course/myOwnCourses", httpOptions);
+  }
+
   getCourse(id: number): Observable<any> {
     return this.http.get<any>(AUTH_API + `course/${id}`, httpOptions);
   }
@@ -34,5 +38,18 @@ export class CourseService {
 
   getLectures(courseID: BigInteger): Observable<any> {
     return this.http.get(AUTH_API + "lecture/" + courseID, httpOptions);
+  }
+
+  createCourse(courseName: string): Observable<any> {
+    return this.http.post(AUTH_API + "course/create", courseName, httpOptions)
+  }
+
+  deleteCourse(courseID: BigInteger): Observable<any> {
+    console.log(AUTH_API + "course/delete/" + courseID)
+    return this.http.delete(AUTH_API + "course/delete/" + courseID, httpOptions)
+  }
+
+  assignProfessor(email: string, courseName: string) {
+    return this.http.put(AUTH_API + "course/changeOwnership", {newOwnerEmail:email, courseName:courseName}, httpOptions)
   }
 }

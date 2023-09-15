@@ -13,6 +13,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { ProfileComponent } from './profile/profile.component';
 import { CoursePageComponent } from './course-page/course-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { CourseManageComponent } from './course-manage/course-manage.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     ProfileComponent,
     CoursePageComponent,
     AdminPageComponent,
+    CourseManageComponent
   ],
   imports: [
     BrowserModule,
