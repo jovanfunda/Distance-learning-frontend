@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
 })
 export class CourseManageComponent {
 
-  courseToEdit!: Course;
-
   constructor(public courseService: CourseService, private router: Router) {
   }
 
@@ -25,6 +23,5 @@ export class CourseManageComponent {
 
   editCourse(course: Course) {
     this.router.navigate(['/editCourse/', course.id], {state: {course: course}});
-    this.courseToEdit = course;
   }
 }

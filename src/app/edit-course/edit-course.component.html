@@ -1,1 +1,30 @@
-<p>edit-course works!</p>
+<div class="lectures">
+    <div *ngFor="let lecture of lectures" class="lecture">
+        <h2>{{ lecture.title }}</h2>
+        <div class="video" *ngIf="lecture.video_url">
+            <iframe [src]="lecture.video_url" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="text" *ngIf="lecture.data">
+            <p>{{ lecture.data }}</p>
+        </div>
+    </div>
+</div>
+
+<div class="create-lecture">
+    <h2>Create a New Lecture</h2>
+    <form>
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" [(ngModel)]="newLecture.title" required>
+      </div>
+      <div class="form-group">
+        <label for="video_url">Video URL:</label>
+        <input type="text" id="video_url" name="video_url" [(ngModel)]="newLecture.video_url">
+      </div>
+      <div class="form-group">
+        <label for="data">Lecture Text:</label>
+        <textarea id="data" name="data" [(ngModel)]="newLecture.data"></textarea>
+      </div>
+      <button type="submit" (click)="createLecture()">Create Lecture</button>
+    </form>
+  </div>

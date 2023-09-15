@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Course } from '../_models/course';
+import { LectureDTO } from '../_models/lectureDTO';
 
 const AUTH_API = 'http://localhost:8080/api/';
 
@@ -47,6 +48,10 @@ export class CourseService {
 
   createCourse(courseName: string): Observable<any> {
     return this.http.post(AUTH_API + "course/create", courseName, httpOptions)
+  }
+
+  createLecture(lecture: LectureDTO, course: string): Observable<any> {
+    return this.http.post(AUTH_API + "lecture/create", { course: course, title: lecture.title, videoUrl: lecture.video_url, data: lecture.data }, httpOptions)
   }
 
   deleteCourse(courseID: BigInteger): Observable<any> {
