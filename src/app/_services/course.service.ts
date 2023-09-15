@@ -51,7 +51,7 @@ export class CourseService {
   }
 
   createLecture(lecture: LectureDTO, course: string): Observable<any> {
-    return this.http.post(AUTH_API + "lecture/create", { course: course, title: lecture.title, videoUrl: lecture.video_url, data: lecture.data }, httpOptions)
+    return this.http.post(AUTH_API + "lecture/create", { course: course, title: lecture.title, videoUrl: lecture.videoUrl, data: lecture.data }, httpOptions)
   }
 
   deleteCourse(courseID: BigInteger): Observable<any> {

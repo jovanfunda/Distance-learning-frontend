@@ -55,3 +55,34 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.test-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+label, input[type="radio"] {
+  display: block;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.question-container {
+  display: none; /* Hide all question containers by default */
+}
+
+.question-container.active {
+  display: block; /* Display the active question container */
+}
