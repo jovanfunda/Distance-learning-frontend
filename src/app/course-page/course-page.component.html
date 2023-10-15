@@ -1,9 +1,20 @@
 <h2>{{ course.name }}</h2>
 <p>{{ course.description }} </p>
 
-<div class="container" *ngIf="lectures.length > 0">
-    <div class="lecture-card" *ngFor="let lecture of lectures">
-      <h2>{{ lecture.title }}</h2>
-      <p>{{ lecture.data }}</p>
+<div *ngIf="lectures.length > 0">
+    <div class="lectures">
+        <div *ngFor="let lecture of lectures" class="lecture">
+            <h2>{{ lecture.title }}</h2>
+            <div class="video" *ngIf="lecture.videoURL">
+                <iframe [src]="lecture.safeURL" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="text" *ngIf="lecture.data">
+                <p>{{ lecture.data }}</p>
+            </div>
+        </div>
     </div>
+</div>
+
+<div class="center-container">
+    <button *ngIf="courseHasTest" (click)="startTest()" class="start-button">{{ 'CLICK_TO_START_TEST' | translate}}</button>
 </div>

@@ -1,0 +1,31 @@
+
+<div class="card">
+  <h2>{{ 'DEMOTE_ADMIN' | translate}}</h2>
+
+  <form>
+      <div class="form-group">
+      <label for="selectedAdmin">{{ 'SELECT_ADMIN' | translate }}</label>
+      <select [(ngModel)]="selectedAdmin" name="selectedAdmin" class="form-control">
+          <option *ngFor="let admin of admins" [ngValue]="admin">{{ admin.email }}</option>
+      </select>
+      </div>
+
+      <button type="submit" class="btn btn-danger" (click)="demoteAdmin()">{{ 'DEMOTE_ADMIN' | translate}}</button>
+  </form>
+</div>
+
+<div class="card">
+  <h2>{{ 'PROMOTE_ADMIN' | translate}}</h2>
+
+  <form>
+      <div class="form-group">
+        <label for="userToAdmin">{{ 'SELECT_USER' | translate }}</label>
+        <select [(ngModel)]="userToAdmin" name="userToAdmin" class="form-control">
+          <option *ngFor="let user of regularUsers" [ngValue]="user">{{ user.email }}</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-success" (click)="promoteToAdmin()">{{ 'PROMOTE_ADMIN' | translate }}</button>
+  </form>
+</div>
+

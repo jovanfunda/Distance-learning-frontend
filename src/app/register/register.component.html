@@ -8,7 +8,7 @@
       novalidate
     >
       <div class="form-group">
-        <label for="firstName">First name</label>
+        <label for="firstName">{{ 'FIRST_NAME' | translate}}</label>
         <input
           type="text"
           class="form-control"
@@ -19,18 +19,9 @@
           maxlength="20"
           #firstName="ngModel"
         />
-        <div class="alert-danger" *ngIf="firstName.errors && f.submitted">
-          <div *ngIf="firstName.errors['required']">First name is required</div>
-          <div *ngIf="firstName.errors['minlength']">
-            First name must be at least 3 characters
-          </div>
-          <div *ngIf="firstName.errors['maxlength']">
-            First name must be at most 20 characters
-          </div>
-        </div>
       </div>
       <div class="form-group">
-        <label for="lastName">Last name</label>
+        <label for="lastName">{{ 'LAST_NAME' | translate }}</label>
         <input
           type="text"
           class="form-control"
@@ -41,18 +32,9 @@
           maxlength="20"
           #lastName="ngModel"
         />
-        <div class="alert-danger" *ngIf="lastName.errors && f.submitted">
-          <div *ngIf="lastName.errors['required']">Last name is required</div>
-          <div *ngIf="lastName.errors['minlength']">
-            Last name must be at least 3 characters
-          </div>
-          <div *ngIf="lastName.errors['maxlength']">
-            Last name must be at most 20 characters
-          </div>
-        </div>
       </div>
       <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">{{ 'EMAIL' | translate }}</label>
         <input
           type="email"
           class="form-control"
@@ -62,15 +44,9 @@
           email
           #email="ngModel"
         />
-        <div class="alert-danger" *ngIf="email.errors && f.submitted">
-          <div *ngIf="email.errors['required']">Email is required</div>
-          <div *ngIf="email.errors['email']">
-            Email must be a valid email address
-          </div>
-        </div>
       </div>
       <div class="form-group">
-        <label for="password">Password</label>
+        <label for="password">{{ 'PASSWORD' | translate }}</label>
         <input
           type="password"
           class="form-control"
@@ -80,24 +56,14 @@
           minlength="6"
           #password="ngModel"
         />
-        <div class="alert-danger" *ngIf="password.errors && f.submitted">
-          <div *ngIf="password.errors['required']">Password is required</div>
-          <div *ngIf="password.errors['minlength']">
-            Password must be at least 6 characters
-          </div>
-        </div>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary btn-block">Sign Up</button>
-      </div>
-
-      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-        Signup failed!<br />{{ errorMessage }}
+        <button class="btn btn-primary btn-block">{{ 'SIGN_UP' | translate }}</button>
       </div>
     </form>
 
     <div class="alert alert-success" *ngIf="isSuccessful">
-      Your registration is successful!
+      {{ 'SUCCESSFUL_REGISTRATION' | translate }}
     </div>
   </div>
 </div>

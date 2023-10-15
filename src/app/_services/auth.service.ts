@@ -13,7 +13,14 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: HttpClient, private tokenStorageService: TokenStorageService) { }
+
+  isLoggedIn = false;
+
+  constructor(private http: HttpClient, private tokenService: TokenStorageService) { 
+    if (this.tokenService.getToken() && this.tokenService.getUser()) {
+      this.isLoggedIn = true;
+    }
+  } 
 
   login(email: string, password: string): Observable<any> {
     return this.http.post(AUTH_API + 'auth/login', {
@@ -32,11 +39,11 @@ export class AuthService {
   }
 
   isAdmin(): boolean {
-    return this.tokenStorageService.getUser().role == "ROLE_ADMIN";
+    return this.tokenService.getUser().role == "ROLE_ADMIN";
   }
 
   isProfessor(): Observable<any> {
-    return this.http.get(AUTH_API + "api/isProfessor/" + this.tokenStorageService.getUser().email, httpOptions);
+    return this.http.get(AUTH_API + "api/isProfessor/" + this.tokenService.getUser().email, httpOptions);
   }
 
   getAdmins(): Observable<any> {

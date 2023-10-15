@@ -1,0 +1,23 @@
+<div class="test-container">
+    <div class="test-form">
+        <form>
+            <h2>{{ 'TEST' | translate }}</h2>
+            <div *ngFor="let question of questions; let i = index" class="question-container" [ngClass]="{ 'active': currentQuestionIndex === i }">
+                <div class="question">
+                    {{ i + 1 }}. {{ question.question }}
+            
+                    <div *ngFor="let answer of question.answers; let j = index">
+                        <input type="radio" [name]="'question_' + i" [value]="answer" [id]="'answer_' + i + '_' + j" [(ngModel)]="question.selectedAnswer">
+                        <label [for]="'answer_' + i + '_' + j">{{ answer }}</label>
+                    </div>
+                </div>
+                <button class="testButton" *ngIf="currentQuestionIndex !== 0" (click)="moveToQuestion(currentQuestionIndex - 1)">{{ 'PREVIOUS_QUESTION' | translate }}</button>
+                <button class="testButton" *ngIf="currentQuestionIndex !== questions.length - 1" (click)="moveToQuestion(currentQuestionIndex + 1)">{{ 'NEXT_QUESTION' | translate }}</button>
+            </div>
+            <hr>
+            <div class="submit"> 
+                <button type="button" (click)="submitTest()">{{ 'SUBMIT_TEST' | translate }}</button>
+            </div>
+        </form>
+    </div>
+</div>

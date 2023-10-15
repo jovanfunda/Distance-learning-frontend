@@ -1,0 +1,20 @@
+<h2>{{ course.name }}</h2>
+<hr>
+
+<div class="main">
+    <h4>{{ 'CHANGE_COURSE_ATTRIBUTES' | translate }}</h4>
+
+    <form>
+        <div class="form-group">
+        <label for="description">{{ 'COURSE_DESCRIPTION' | translate }}</label>
+        <textarea id="description" [(ngModel)]="course.description" name="courseDescription" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+        <label for="pictureUrl">{{ "COURSE_PHOTO_URL" | translate }}</label>
+        <input type="text" id="pictureUrl" [(ngModel)]="course.pictureURL" name="coursePictureUrl" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="changeCourseDescription()">{{ 'SAVE_CHANGES' | translate }}</button>
+    </form>
+</div>

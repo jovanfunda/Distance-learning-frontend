@@ -1,0 +1,23 @@
+.form-group {
+    margin-bottom: 10px;
+}
+
+label, input[type="radio"] {
+    display: block;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.main {
+    flex: 0 0 auto;
+    max-width: 600px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-right: 20px;
+}

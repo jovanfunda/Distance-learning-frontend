@@ -1,37 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TokenStorageService } from './_services/token-storage.service';
 import { AuthService } from './_services/auth.service';
 import { CourseService } from './_services/course.service';
-import { Course } from './_models/course';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  isLoggedIn = false;
-  userEmail?: string;
+  constructor(public tokenService: TokenStorageService, public authService: AuthService, private courseService: CourseService, private translate: TranslateService) { }
 
-  constructor(private tokenStorageService: TokenStorageService, private authService: AuthService, private courseService: CourseService) { }
-
-  ngOnInit(): void {
-    this.isLoggedIn = !!this.tokenStorageService.getToken();
-
-    if (this.isLoggedIn) {
-      this.userEmail = this.tokenStorageService.getUser().email;
+  ngOnInit() {
+    const selectedLanguage = localStorage.getItem('selectedLanguage');
+    if (selectedLanguage) {
+      this.translate.use(selectedLanguage);
     }
-
-    this.courseService.getMyOwnCourses().subscribe({
-      next: (myOwnCourses) => {
-        this.courseService.myOwnCourses = myOwnCourses;
-      } 
-    })
+    if(this.authService.isLoggedIn) {
+      this.courseService.getMyOwnCourses().subscribe({
+        next: (data) => {
+          this.courseService.myOwnCourses = data;
+        }
+      })
+    }
   }
 
   logout(): void {
-    this.tokenStorageService.signOut();
+    this.tokenService.signOut();
     window.location.reload();
   }
 
@@ -42,4 +39,9 @@ export class AppComponent implements OnInit {
   isProfessor() {
     return this.courseService.myOwnCourses.length > 0;
   }
+
+  switchLanguage(lang: string) {
+    this.translate.use(lang);
+    localStorage.setItem('selectedLanguage', lang);
+}
 }

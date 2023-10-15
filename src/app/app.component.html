@@ -1,38 +1,51 @@
-<div id="app">
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">jovanfunda</a>
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item" *ngIf="isAdmin()">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin</a>
-      </li>
-      <li class="nav-item" *ngIf="isProfessor()">
-        <a href="/manageCourses" class="nav-link" routerLink="manageCourses">Manage courses</a>
-      </li>
-      <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home">Home </a>
-      </li>
-    </ul>
+<div class="background-container">
+  <img src="assets/background.webp" alt="Background Image" class="background-image">
+</div>
 
-    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
-      </li>
-      <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">Login</a>
-      </li>
-    </ul>
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <ul class="navbar-nav mr-auto" routerLinkActive="active">
+    <li class="nav-item" *ngIf="authService.isLoggedIn && isAdmin()">
+      <a href="/admin" class="nav-link" routerLink="admin">{{ 'ADMIN' | translate }}</a>
+    </li>
+    <li class="nav-item" *ngIf="authService.isLoggedIn && isProfessor()">
+      <a href="/manageCourses" class="nav-link" routerLink="manageCourses">{{ 'MANAGE_COURSES' | translate }}</a>
+    </li>
+    <li class="nav-item">
+      <a href="/home" class="nav-link" routerLink="home">{{ 'HOME' | translate }}</a>
+    </li>
+  </ul>
 
-    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">{{ userEmail }}</a>
-      </li>
-      <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">LogOut</a>
-      </li>
-    </ul>
-  </nav>
+  <ul class="navbar-nav ml-auto" *ngIf="!authService.isLoggedIn">
+    <li class="nav-item">
+      <a href="/register" class="nav-link" routerLink="register">{{ 'SIGN_UP' | translate }}</a>
+    </li>
+    <li class="nav-item">
+      <a href="/login" class="nav-link" routerLink="login">{{ 'LOG_IN' | translate }}</a>
+    </li>
+  </ul>
 
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
+  <ul class="navbar-nav ml-auto" *ngIf="authService.isLoggedIn">
+    <li class="nav-item">
+      <a class="nav-link">{{ tokenService.getUser().email }}</a>
+    </li>
+    <li class="nav-item">
+      <a href class="nav-link" (click)="logout()">{{ 'LOG_OUT' | translate }}</a>
+    </li>
+  </ul>
+  
+  <ul class="navbar-nav">
+    <li class="nav-item dropdown">
+      <span class="nav-link dropdown-toggle" id="navbarDropdown" role="button">
+        {{ 'LANGUAGE' | translate }}
+      </span>
+      <div class="dropdown-content" aria-labelledby="navbarDropdown">
+        <a (click)="switchLanguage('en')">{{ 'ENGLISH' | translate }}</a>
+        <a (click)="switchLanguage('sr')">{{ 'SERBIAN' | translate }}</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
 </div>

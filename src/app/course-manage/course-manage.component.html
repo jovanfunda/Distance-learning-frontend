@@ -1,4 +1,4 @@
-<h2>Izaberi kurs koji zelis da izmenis</h2>
+<h2 class="title">{{ 'SELECT_COURSE_TO_CHANGE' | translate }}</h2>
 
 <div class="course-list">
     <div *ngFor="let course of courseService.myOwnCourses" class="course" (click)="editCourse(course)">

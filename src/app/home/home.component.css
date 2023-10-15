@@ -1,29 +1,28 @@
-.title {
-    font-family: 'Roboto', sans-serif;
-    font-size: 2em; /* Adjust the font size as needed */
-    font-weight: bold; /* Optional: Make the title bold */
-    margin-bottom: 10px; /* Optional: Add some space below the title */
-    color: #007BFF; /* Primary color */
-}
-
 .course-list {
     display: flex;
     flex-direction: column;
-    max-width: 67%;
-    gap: 20px;
+    max-width: 100%;
+    gap: 10px;
+    padding: 10px;
+}
+
+.course-info {
+    flex-grow: 1;
+    padding-left: 20px;
 }
   
 .course {
-    flex-basis: calc(33.33% - 20px); /* Three courses per row with 20px gap */
+    display: flex;
     background-color: #f8f9fa;
     padding: 20px;
     border: 1px solid #ccc;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
 }
   
 .course-image {
     max-width: 100%;
     height: auto;
+    padding-right: 30px;
 }
   
 .course-name {

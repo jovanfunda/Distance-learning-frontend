@@ -1,0 +1,45 @@
+<div class="card">
+  <h2>{{ 'CREATE_COURSE' | translate }}</h2>
+  <form>
+      <div class="form-group">
+      <label>{{ 'COURSE_NAME' | translate }}</label>
+      <input type="text" class="form-control" required [(ngModel)]="courseName" name="courseName">
+      </div>
+
+      <button type="submit" class="btn btn-primary" (click)="createCourse()">{{ 'CREATE_COURSE' | translate }}</button>
+  </form>
+</div>
+
+<div class="card">
+  <h2>{{ 'DELETE_COURSE' | translate }}</h2>  
+  <form>
+    <div class="form-group">
+        <label for="courseSelect">{{ 'SELECT_COURSE' | translate }}</label>
+        <select id="courseSelect" [(ngModel)]="selectedCourse" class="form-control" name="selectedCourse">
+        <option *ngFor="let course of courses" [ngValue]="course">{{ course.name }}</option>
+        </select>
+    </div>
+    <button (click)="deleteCourse()" class="btn btn-danger">{{ 'DELETE_COURSE' | translate }}</button>
+  </form>
+</div>
+
+<div class="card">
+  <h2>{{ 'COURSE_OWNER' | translate }}</h2>
+  <form>
+    <div class="form-group">
+      <label for="courseSelect">{{ 'SELECT_COURSE' | translate }}</label>
+      <select id="courseSelect" [(ngModel)]="selectedCourseForAssignment" name="selectedCourseForAssignment" class="form-control">
+        <option *ngFor="let course of courses" [ngValue]="course">{{ course.name }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="professorSelect">{{ 'SELECT_PROFESSOR' | translate}}</label>
+      <select id="professorSelect" [(ngModel)]="selectedProfessorForAssignment" name="selectedProfessorForAssignment" class="form-control">
+        <option *ngFor="let user of allUsers" [ngValue]="user">{{ user.email }}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="assignProfessor()">{{ 'ASSIGN_PROFESSOR' | translate }}</button>
+  </form>
+</div>

@@ -2,7 +2,7 @@ import { SafeResourceUrl } from "@angular/platform-browser";
 
 export interface LectureDTO {
     title: string,
-    videoUrl: string,
+    videoURL: string,
     data: string
     safeURL: SafeResourceUrl;
 }

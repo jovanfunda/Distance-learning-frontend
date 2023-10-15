@@ -1,8 +1,35 @@
 .container {
-    margin: 50px auto; /* Adjust the margin size as needed */
-    max-width: 80%; /* Adjust the max width if desired */
-    padding: 20px; /* Adjust the padding if needed */
-    background-color: #fff; /* Optional: Set a background color for the container */
-    border: 1px solid #ccc; /* Optional: Add a border around the container */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
-  }
+    margin: 50px auto;
+    max-width: 70%;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: 3px solid #007BFF;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #007BFF;
+    padding: 20px;
+}
+
+.background-container {
+    position: fixed;    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(15px);
+}
+  
+.background-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
