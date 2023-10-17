@@ -12,7 +12,7 @@ input[type="text"] {
     margin-bottom: 10px;
 }
 
-.main {
+.main-i {
     flex: 0 0 auto;
     max-width: 600px;
     background-color: #f8f9fa;
@@ -20,4 +20,18 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 8px;
     margin-right: 20px;
+    text-align: center;
+    width: 50%;
 }
+
+.main-o {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    text-align: left;
+}
+
+  

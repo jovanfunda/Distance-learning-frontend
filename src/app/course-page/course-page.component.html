@@ -1,10 +1,10 @@
-<h2>{{ course.name }}</h2>
+<h2 class="title">{{ course.name }}</h2>
 <p>{{ course.description }} </p>
 
 <div *ngIf="lectures.length > 0">
     <div class="lectures">
         <div *ngFor="let lecture of lectures" class="lecture">
-            <h2>{{ lecture.title }}</h2>
+            <h3>{{ lecture.title }}</h3>
             <div class="video" *ngIf="lecture.videoURL">
                 <iframe [src]="lecture.safeURL" frameborder="0" allowfullscreen></iframe>
             </div>

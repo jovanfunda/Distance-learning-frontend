@@ -47,6 +47,7 @@ export class AdminCourseManageComponent {
     this.courseService.createCourse(this.courseName).subscribe({
       next: (course) => {
         this.courses.push(course)
+        window.alert("Kurs " + course.name + " uspesno kreiran!")
       },
       error: (err) => {
         console.log(err)
@@ -57,6 +58,7 @@ export class AdminCourseManageComponent {
   deleteCourse() {
     this.courseService.deleteCourse(this.selectedCourse.id).subscribe({
       next: () => {
+        window.alert("Kurs " + this.selectedCourse.name + " uspesno uklonjen!")
         this.courses = this.courses.filter(course => course.id != this.selectedCourse.id)
         this.selectedCourse.id = this.courses[0].id
       },
@@ -67,7 +69,11 @@ export class AdminCourseManageComponent {
   }
 
   assignProfessor() {
-    this.courseService.assignProfessor(this.selectedProfessorForAssignment.email, this.selectedCourseForAssignment.name).subscribe({})
+    this.courseService.assignProfessor(this.selectedProfessorForAssignment.email, this.selectedCourseForAssignment.name).subscribe({
+      next: () => {
+        window.alert("Kurs " + this.selectedCourseForAssignment.name + " uspesno dodeljen profesoru " + this.selectedProfessorForAssignment.email);
+      }
+    })
   }
 
 }

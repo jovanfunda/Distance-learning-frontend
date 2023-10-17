@@ -1,13 +1,13 @@
-<h2>{{ course.name }}</h2>
+<h2 class="title">{{ course.name }}</h2>
 
 <div class="link-list">
-  <div (click)="redirectToDetails()" class="styled-link">
-    <h2 class="window">{{ 'CHANGE_COURSE_ATTRIBUTES' | translate }}</h2>
+  <div (click)="redirectToDetails()" class="item">
+    <h2 class="name">{{ 'CHANGE_COURSE_ATTRIBUTES' | translate }}</h2>
   </div>
-  <div (click)="redirectToCreateLectures()" class="styled-link">
-    <h2 class="window">{{ 'CREATE_LECTURE' | translate }}</h2>
+  <div (click)="redirectToCreateLectures()" class="item">
+    <h2 class="name">{{ 'CREATE_LECTURE' | translate }}</h2>
   </div>
-  <div (click)="deleteTestAlert()" class="styled-link">
-    <h2 class="window">{{ 'CREATE_TEST' | translate }}</h2>
+  <div (click)="deleteTestAlert()" class="item">
+    <h2 class="name">{{ 'CREATE_TEST' | translate }}</h2>
   </div>
 </div>

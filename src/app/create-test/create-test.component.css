@@ -3,6 +3,12 @@ label {
     font-weight: bold;
     display: block;
 }
+
+.outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
     
 input, textarea {
     width: 100%;
@@ -16,6 +22,7 @@ button {
     background-color: #007bff;
     color: #fff;
     border: none;
+    margin: 10px;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -30,12 +37,16 @@ button:hover {
   
 .test-form {
     flex: 0 0 auto;
-    max-width: 600px;
     background-color: #f8f9fa;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
     margin-right: 20px;
+    width: 50%;
+}
+
+.center {
+    text-align: center;
 }
 
 .question {

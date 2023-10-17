@@ -19,7 +19,7 @@ export class CourseDetailsChangeComponent {
   changeCourseDescription() {
     this.courseService.changeCourseDescription(this.course.id, this.course.description, this.course.pictureURL).subscribe({
       next: (data) => {
-        
+        window.alert("Uspesno izmenjen kurs " + this.course.name)
       }, 
       error: (err) => {
         console.log(err);

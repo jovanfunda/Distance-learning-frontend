@@ -1,5 +1,6 @@
 .lectures {
     margin: 20px;
+    text-align: center;
 }
     
 .lecture {
@@ -8,6 +9,10 @@
     border: 1px solid #ccc;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+}
+
+.text {
+    text-align: left;
 }
   
 .video iframe {
@@ -25,6 +30,8 @@
     padding: 20px;
     border: 1px solid #ccc;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    align-items: center;
 }
   
 .form-group {
@@ -51,6 +58,16 @@ button {
     border-radius: 4px;
     cursor: pointer;
 }
+
+.center {
+    text-align: center;
+}
+
+.outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
     
 button:hover {
     background-color: #0056b3;
@@ -64,4 +81,8 @@ input[type="text"] {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
+}
+
+h3 {
+    text-align: center;
 }

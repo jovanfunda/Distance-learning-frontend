@@ -4,6 +4,11 @@ h2, p {
 
 .lectures {
   margin: 20px;
+  text-align: center;
+}
+
+.text {
+  text-align: left;
 }
   
 .lecture {

@@ -1,34 +1,39 @@
-<h2>{{ course.name }}</h2>
-<div class="test-form">
-    <form>
-      <h2>{{ 'CREATE_TEST' | translate }}</h2>
+<h2 class="title">{{ course.name }}</h2>
+<div class="outer">
+       <div class="test-form">
+       <form>
+       <h2 class="center">{{ 'CREATE_TEST' | translate }}</h2>
 
-      <div *ngFor="let question of questions; let i = index" class="question-container" [ngClass]="{ 'active': currentQuestionIndex === i }">
-        <div class="question">
-          <label for="q{{ question }}">{{ 'QUESTION' | translate }} {{ question }}:</label>
-          <input type="text" id="q{{ question }}" name="q{{ question }}" required [(ngModel)]="questionValues[i]">
-      
-            <label>{{ 'RIGHT_ANSWER' | translate }}</label>
-            <input type="text" id="r{{ question }}1-{{ i }}" name="r{{ question }}1-{{ i }}" required 
-                   [ngModel]="getOptionValue('Right answer', i)" (ngModelChange)="updateOptionValue($event, 'Right answer', i)">
-            <label>{{ 'WRONG_ANSWER' | translate }} 1</label>
-            <input type="text" id="r{{ question }}2-{{ i }}" name="r{{ question }}2-{{ i }}" required 
-                   [ngModel]="getOptionValue('Wrong answer 1', i)" (ngModelChange)="updateOptionValue($event, 'Wrong answer 1', i)">
-            <label>{{ 'WRONG_ANSWER' | translate }} 2</label>
-            <input type="text" id="r{{ question }}3-{{ i }}" name="r{{ question }}3-{{ i }}" required 
-                   [ngModel]="getOptionValue('Wrong answer 2', i)" (ngModelChange)="updateOptionValue($event, 'Wrong answer 2', i)">
-            <label>{{ 'WRONG_ANSWER' | translate }} 3</label>
-            <input type="text" id="r{{ question }}4-{{ i }}" name="r{{ question }}4-{{ i }}" required 
-                   [ngModel]="getOptionValue('Wrong answer 3', i)" (ngModelChange)="updateOptionValue($event, 'Wrong answer 3', i)">
+       <div *ngFor="let question of questions; let i = index" class="question-container" [ngClass]="{ 'active': currentQuestionIndex === i }">
+              <div class="question">
+              <label for="q{{ question }}">{{ 'QUESTION' | translate }} {{ question }}:</label>
+              <input type="text" id="q{{ question }}" name="q{{ question }}" required [(ngModel)]="questionValues[i]">
+       
+              <label>{{ 'RIGHT_ANSWER' | translate }}</label>
+              <input type="text" id="r{{ question }}1-{{ i }}" name="r{{ question }}1-{{ i }}" required 
+                     [ngModel]="getOptionValue('Right answer', i)" (ngModelChange)="updateOptionValue($event, 'Right answer', i)">
+              <label>{{ 'WRONG_ANSWER' | translate }} 1</label>
+              <input type="text" id="r{{ question }}2-{{ i }}" name="r{{ question }}2-{{ i }}" required 
+                     [ngModel]="getOptionValue('Wrong answer 1', i)" (ngModelChange)="updateOptionValue($event, 'Wrong answer 1', i)">
+              <label>{{ 'WRONG_ANSWER' | translate }} 2</label>
+              <input type="text" id="r{{ question }}3-{{ i }}" name="r{{ question }}3-{{ i }}" required 
+                     [ngModel]="getOptionValue('Wrong answer 2', i)" (ngModelChange)="updateOptionValue($event, 'Wrong answer 2', i)">
+              <label>{{ 'WRONG_ANSWER' | translate }} 3</label>
+              <input type="text" id="r{{ question }}4-{{ i }}" name="r{{ question }}4-{{ i }}" required 
+                     [ngModel]="getOptionValue('Wrong answer 3', i)" (ngModelChange)="updateOptionValue($event, 'Wrong answer 3', i)">
 
-        </div>
-      
-        <button *ngIf="currentQuestionIndex !== 0" (click)="moveToQuestion(currentQuestionIndex - 1)">{{ 'PREVIOUS_QUESTION' | translate }}</button>
-        <button *ngIf="currentQuestionIndex !== questions.length - 1" (click)="moveToQuestion(currentQuestionIndex + 1)">{{ 'NEXT_QUESTION' | translate }}</button>
-      </div>
+              </div>
+       
+              <div class="center">
+                     <button *ngIf="currentQuestionIndex !== 0" (click)="moveToQuestion(currentQuestionIndex - 1)"><<</button>
+                     <button *ngIf="currentQuestionIndex !== questions.length - 1" (click)="moveToQuestion(currentQuestionIndex + 1)">>></button>
+              </div>
+       </div>
 
-      <hr>
-      
-      <button type="button" (click)="createTest()">{{ 'CREATE_TEST' | translate }}</button>
-    </form>
+       <hr>
+       <div class="center">
+              <button type="button" (click)="createTest()">{{ 'CREATE_TEST' | translate }}</button>
+       </div>
+       </form>
+       </div>
 </div>

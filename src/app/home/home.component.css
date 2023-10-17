@@ -10,6 +10,11 @@
     flex-grow: 1;
     padding-left: 20px;
 }
+
+img {
+    max-width: 150px;
+    max-height: 150px;
+}
   
 .course {
     display: flex;

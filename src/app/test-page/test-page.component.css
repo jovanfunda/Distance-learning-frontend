@@ -26,13 +26,12 @@ button:hover {
 
 .test-form {
   flex: 0 0 auto;
-  max-width: 600px;
   background-color: #f8f9fa;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   margin-right: 20px;
-  min-width: 50%;
+  min-width: 30%;
 }
 
 .test-container {
