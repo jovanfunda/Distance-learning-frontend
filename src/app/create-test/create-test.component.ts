@@ -54,6 +54,7 @@ export class CreateTestComponent {
     this.courseService.createTest(this.course.id, questions).subscribe({
       next: (data) => {
         console.log(data)
+        window.alert("Uspesno kreiran test za kurs " + this.course.name)
       },
       error: (err) => {
         console.log(err);

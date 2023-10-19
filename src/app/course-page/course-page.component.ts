@@ -4,6 +4,7 @@ import { Course } from '../_models/course';
 import { LectureDTO } from '../_models/lectureDTO';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TestService } from '../_services/test.service';
+import { TokenStorageService } from '../_services/token-storage.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,6 +17,8 @@ export class CoursePageComponent {
   course: Course;
   lectures = [] as LectureDTO[];
   courseHasTest = false;
+  finishedTest = false;
+  score = 0;
 
   constructor(private courseService: CourseService, private testService: TestService, private sanitizer: DomSanitizer, private router: Router) {
     this.course = history.state.course;
@@ -38,6 +41,14 @@ export class CoursePageComponent {
       },
       error: (err) => {
         console.log(err);
+      }
+    })
+
+    this.testService.finishedTest(this.course.id).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.finishedTest = data.finishedTest;
+        this.score = data.score;
       }
     })
   }

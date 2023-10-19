@@ -9,7 +9,7 @@
         <img *ngIf="course.pictureURL" [src]="course.pictureURL" alt="{{ course.name }} Image" class="course-image">
         <div class="courseInfo">
           <h3 class="course-name">{{ course.name }}</h3>
-          <p class="professor">{{ 'PROFESSOR' | translate }}: {{ course.fullOwnerName }}</p>
+          <p class="professor" *ngIf="course.fullOwnerName != null">{{ 'PROFESSOR' | translate }}: {{ course.fullOwnerName }}</p>
           <p *ngIf="course.description" class="description">{{ course.description }}</p>
           <button class="enroll-button" (click)='navigateToCourse(course)'>{{ 'OPEN_COURSE' | translate }}</button>
         </div>
@@ -24,7 +24,7 @@
         <img *ngIf="course.pictureURL" [src]="course.pictureURL" alt="{{ course.name }} Image" class="course-image">
         <div class="courseInfo">
           <h3 class="course-name">{{ course.name }}</h3>
-          <p class="professor">{{ 'PROFESSOR' | translate }}: {{ course.fullOwnerName }}</p>
+          <p class="professor" *ngIf="course.fullOwnerName != null">{{ 'PROFESSOR' | translate }}: {{ course.fullOwnerName }}</p>
           <p *ngIf="course.description" class="description">{{ course.description }}</p>
           <button class="enroll-button" (click)="enrollCourse(course)">{{ 'ENROLL_COURSE' | translate }}</button>
         </div>
@@ -41,7 +41,7 @@
         <img *ngIf="course.pictureURL" [src]="course.pictureURL" alt="{{ course.name }} Image" class="course-image">
         <div class="courseInfo">
           <h3 class="course-name">{{ course.name }}</h3>
-          <p class="professor">{{ 'PROFESSOR' | translate }}: {{ course.fullOwnerName }}</p>
+          <p class="professor" *ngIf="course.fullOwnerName != null">{{ 'PROFESSOR' | translate }}: {{ course.fullOwnerName }}</p>
           <p *ngIf="course.description" class="description">{{ course.description }}</p>
           <button class="enroll-button" (click)="navigateToLogin()">{{ 'LOG_IN_TO_ENTER_COURSES' | translate }}</button>
       </div>

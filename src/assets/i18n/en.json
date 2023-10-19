@@ -49,5 +49,6 @@
     "RIGHT_ANSWER":"Right answer",
     "WRONG_ANSWER":"Wrong answer",
     "ENGLISH":"English",
-    "SERBIAN":"Serbian"
+    "SERBIAN":"Serbian",
+    "COURSE_FINISHED":"You completed this course, final score: "
 }

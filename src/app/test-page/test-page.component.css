@@ -1,37 +1,12 @@
-label {
-  font-weight: bold;
-  display: block;
-}
-  
-input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-  
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin: 5px;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
 .test-form {
-  flex: 0 0 auto;
   background-color: #f8f9fa;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   margin-right: 20px;
   min-width: 30%;
+  justify-content: center;
+  align-items: center;
 }
 
 .test-container {
@@ -50,8 +25,14 @@ button:hover {
   margin-bottom: 20px;
 }
 
-label, input[type="radio"] {
-  display: block;
+.answers {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.answers label {
+  margin-left: 5px;
 }
 
 .question-container {
@@ -60,4 +41,22 @@ label, input[type="radio"] {
 
 .question-container.active {
   display: block;
+}
+
+label {
+  font-weight: bold;
+}
+  
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
 }

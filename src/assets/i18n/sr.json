@@ -48,5 +48,6 @@
     "RIGHT_ANSWER":"Tacan odgovor",
     "WRONG_ANSWER":"Netacan odgovor",
     "ENGLISH":"Engleski",
-    "SERBIAN":"Srpski"
+    "SERBIAN":"Srpski",
+    "COURSE_FINISHED":"Zavrsio si ovaj kurs, krajnji rezultat: "
 }

@@ -15,6 +15,10 @@
     </div>
 </div>
 
-<div class="center-container">
+<div class="center-container" *ngIf="!finishedTest">
     <button *ngIf="courseHasTest" (click)="startTest()" class="start-button">{{ 'CLICK_TO_START_TEST' | translate}}</button>
+</div>
+
+<div class="center-container" *ngIf="finishedTest">
+    <p>{{ 'COURSE_FINISHED' | translate }} {{ score }}/5</p>
 </div>

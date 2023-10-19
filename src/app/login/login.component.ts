@@ -31,6 +31,7 @@ export class LoginComponent {
         })
       },
       error: () => {
+        window.alert("Uneti su pogresni kredencijali")
       }
     });
   }

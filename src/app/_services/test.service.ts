@@ -30,4 +30,8 @@ export class TestService {
   submitScore(courseID: number, score: number): Observable<any> {
     return this.http.put(AUTH_API + 'test/submitScore', {courseID, score}, httpOptions);
   }
+
+  finishedTest(courseID: BigInteger): Observable<any> {
+    return this.http.get(AUTH_API + `test/didFinishTest/${courseID}`, httpOptions);
+  }
 }

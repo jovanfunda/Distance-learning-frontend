@@ -25,7 +25,7 @@ export class EditCourseComponent {
   }
 
   deleteTestAlert() {
-    var confirm = window.confirm('If this course already has a test, it will be permanently deleted');
+    var confirm = window.confirm('Ukoliko ovaj kurs vec sadrzi test, isti ce biti obrisan');
 
     if (confirm) {
       this.testService.deleteTest(this.course.id).subscribe();

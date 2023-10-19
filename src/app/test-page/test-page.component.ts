@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TestService } from '../_services/test.service';
 import { Question } from '../_models/question';
 import { TestAnswer } from '../_models/testAnswer';
@@ -15,8 +15,9 @@ export class TestPageComponent {
   currentQuestionIndex = 0;
   testAnswer = [] as TestAnswer[];
   courseID = 0;
+  score = 0;
 
-  constructor(private route: ActivatedRoute, private testService: TestService) { }
+  constructor(private route: ActivatedRoute, private testService: TestService, private router: Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -53,17 +54,18 @@ export class TestPageComponent {
   }
 
   submitTest() {
-    let score = 0;
+    this.score = 0;
 
     this.questions.forEach((question) => {
       if(question.selectedAnswer == question.rightAnswer) {
-        score += 1;
+        this.score += 1;
       }
     });
 
-    this.testService.submitScore(this.courseID, score).subscribe({
+    this.testService.submitScore(this.courseID, this.score).subscribe({
       next: () => {
-        console.log("Azuriran skor u bazi")
+        window.alert("Zavrsen test, tvoj broj poena je: " + this.score);
+        this.router.navigate(['/home']);
       },
       error: (err) => {
         console.log(err);
