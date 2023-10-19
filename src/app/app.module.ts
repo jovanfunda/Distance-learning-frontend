@@ -21,6 +21,7 @@ import { CreateLectureComponent } from './create-lecture/create-lecture.componen
 import { CreateTestComponent } from './create-test/create-test.component';
 import { AdminCourseManageComponent } from './admin-course-manage/admin-course-manage.component';
 import { AdminManageComponent } from './admin-manage/admin-manage.component';
+import { ExcelService } from './_services/excel.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -59,7 +60,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       defaultLanguage: 'sr'
     })
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders, ExcelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

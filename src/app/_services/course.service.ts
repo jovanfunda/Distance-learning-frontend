@@ -32,7 +32,7 @@ export class CourseService {
   }
 
   getMyOwnCourses(): Observable<any> {
-    return this.http.get(AUTH_API + "course/myOwnCourses", httpOptions);
+    return this.http.get(AUTH_API + "course/myCourses", httpOptions);
   }
 
   getCourse(id: number): Observable<any> {

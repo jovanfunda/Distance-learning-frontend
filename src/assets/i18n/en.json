@@ -16,7 +16,6 @@
     "COURSE_DESCRIPTION":"Course description",
     "COURSE_PHOTO_URL":"Course photo URL",
     "SAVE_CHANGES":"Save changes",
-    "SELECT_COURSE_TO_CHANGE":"Select course you want to change",
     "CLICK_TO_START_TEST":"Click to start test",
     "CREATE_LECTURE":"Create new lecture",
     "TITLE":"Title",
@@ -50,5 +49,6 @@
     "WRONG_ANSWER":"Wrong answer",
     "ENGLISH":"English",
     "SERBIAN":"Serbian",
-    "COURSE_FINISHED":"You completed this course, final score: "
+    "COURSE_FINISHED":"You completed this course, final score: ",
+    "DOWNLOAD_DATA":"Download data from enrolled students"
 }

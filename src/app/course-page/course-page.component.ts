@@ -35,7 +35,7 @@ export class CoursePageComponent {
       }
     })
 
-    this.testService.getTest(this.course.id).subscribe({
+    this.testService.hasTest(this.course.id).subscribe({
       next: (data) => {
           this.courseHasTest = data;
       },

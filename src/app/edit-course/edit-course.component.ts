@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Course } from '../_models/course';
 import { TestService } from '../_services/test.service';
 import { Router } from '@angular/router';
+import { ExcelService } from '../_services/excel.service';
 
 @Component({
   selector: 'app-edit-course',
@@ -12,7 +13,7 @@ export class EditCourseComponent {
 
   course: Course;
 
-  constructor(private router: Router, private testService: TestService) {
+  constructor(private router: Router, private testService: TestService, private excelService: ExcelService) {
     this.course = history.state.course;
   }
 
@@ -25,11 +26,31 @@ export class EditCourseComponent {
   }
 
   deleteTestAlert() {
-    var confirm = window.confirm('Ukoliko ovaj kurs vec sadrzi test, isti ce biti obrisan');
+    this.testService.hasTest(this.course.id).subscribe({
+      next: (hasCourse) => {
+        if(hasCourse) {
+          var confirm = window.confirm('Ukoliko zelite da kreirate test, postojeci test ce biti izbrisan');
 
-    if (confirm) {
-      this.testService.deleteTest(this.course.id).subscribe();
-      this.router.navigate(['/createTest', this.course.id], {state: {course: this.course}});
-    }
+          if (confirm) {
+            this.testService.deleteTest(this.course.id).subscribe();
+            this.router.navigate(['/createTest', this.course.id], {state: {course: this.course}});
+          }
+        } else {
+          this.router.navigate(['/createTest', this.course.id], {state: {course: this.course}});
+        }
+      }
+    });
   }
+
+  downloadData() {
+
+    // .. ime, prezime, imejl, skor, radjen test, ........napraviti novi upit ka bekendu..
+    this.testService.getDataForDownload(this.course.id).subscribe({
+      next: (data) => {
+        const fileName = this.course.name + " - data";
+        this.excelService.generateExcel(data, fileName);
+      }
+    })
+  }
+
 }

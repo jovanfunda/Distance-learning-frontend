@@ -16,7 +16,6 @@
     "COURSE_DESCRIPTION":"Opis kursa",
     "COURSE_PHOTO_URL":"URL Fotografije kursa",
     "SAVE_CHANGES":"Sacuvaj izmene",
-    "SELECT_COURSE_TO_CHANGE":"Izaberi kurs koji zelis da izmenis",
     "CLICK_TO_START_TEST":"Klikni da zapocnes test",
     "CREATE_LECTURE":"Kreiraj novu lekciju",
     "TITLE":"Naslov",
@@ -49,5 +48,6 @@
     "WRONG_ANSWER":"Netacan odgovor",
     "ENGLISH":"Engleski",
     "SERBIAN":"Srpski",
-    "COURSE_FINISHED":"Zavrsio si ovaj kurs, krajnji rezultat: "
+    "COURSE_FINISHED":"Zavrsio si ovaj kurs, krajnji rezultat: ",
+    "DOWNLOAD_DATA":"Preuzmi podatke o studentima koji slusaju ovaj kurs"
 }
