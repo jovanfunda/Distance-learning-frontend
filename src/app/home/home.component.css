@@ -6,6 +6,32 @@
     padding: 10px;
 }
 
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header2 {
+    background-color: #007BFF88;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.search-img {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+}
+
+.search-bar {
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
 .course-info {
     flex-grow: 1;
     padding-left: 20px;

@@ -43,8 +43,6 @@ export class EditCourseComponent {
   }
 
   downloadData() {
-
-    // .. ime, prezime, imejl, skor, radjen test, ........napraviti novi upit ka bekendu..
     this.testService.getDataForDownload(this.course.id).subscribe({
       next: (data) => {
         const fileName = this.course.name + " - data";
@@ -52,5 +50,4 @@ export class EditCourseComponent {
       }
     })
   }
-
 }
