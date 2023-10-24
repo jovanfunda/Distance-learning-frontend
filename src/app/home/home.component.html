@@ -1,8 +1,11 @@
 <div class="header">
   <h1 class="title">Distance learning</h1>
-  <div class="header header2">
-    <img class="search-img" src="../assets/search_icon.png">
-    <input class="search-bar" type="text" [(ngModel)]="searchTerm" (ngModelChange)="onSearchTermChange()">
+  <div class="header">
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'COURSE_SEARCH' | translate }}</mat-label>
+      <input type="text" matInput [(ngModel)]="searchTerm" (ngModelChange)="onSearchTermChange()">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
   </div>
 </div>
 

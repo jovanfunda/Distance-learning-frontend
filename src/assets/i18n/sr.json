@@ -49,5 +49,7 @@
     "ENGLISH":"Engleski",
     "SERBIAN":"Srpski",
     "COURSE_FINISHED":"Zavrsio si ovaj kurs, krajnji rezultat: ",
-    "DOWNLOAD_DATA":"Preuzmi podatke o studentima koji slusaju ovaj kurs"
+    "DOWNLOAD_DATA":"Preuzmi podatke o studentima koji slusaju ovaj kurs",
+    "TEST_DATE":"Dan testa",
+    "COURSE_SEARCH":"Pretraga kurseva"
 }

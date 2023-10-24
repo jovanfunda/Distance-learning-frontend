@@ -10,16 +10,16 @@
               <input type="text" id="q{{ question }}" name="q{{ question }}" required [(ngModel)]="questionValues[i]">
        
               <label>{{ 'RIGHT_ANSWER' | translate }}</label>
-              <input type="text" id="r{{ question }}1-{{ i }}" name="r{{ question }}1-{{ i }}" required 
+              <input class="option" type="text" id="r{{ question }}1-{{ i }}" name="r{{ question }}1-{{ i }}" required 
                      [ngModel]="getOptionValue('Right answer', i)" (ngModelChange)="updateOptionValue($event, 'Right answer', i)">
               <label>{{ 'WRONG_ANSWER' | translate }} 1</label>
-              <input type="text" id="r{{ question }}2-{{ i }}" name="r{{ question }}2-{{ i }}" required 
+              <input class="option" type="text" id="r{{ question }}2-{{ i }}" name="r{{ question }}2-{{ i }}" required 
                      [ngModel]="getOptionValue('Wrong answer 1', i)" (ngModelChange)="updateOptionValue($event, 'Wrong answer 1', i)">
               <label>{{ 'WRONG_ANSWER' | translate }} 2</label>
-              <input type="text" id="r{{ question }}3-{{ i }}" name="r{{ question }}3-{{ i }}" required 
+              <input class="option" type="text" id="r{{ question }}3-{{ i }}" name="r{{ question }}3-{{ i }}" required 
                      [ngModel]="getOptionValue('Wrong answer 2', i)" (ngModelChange)="updateOptionValue($event, 'Wrong answer 2', i)">
               <label>{{ 'WRONG_ANSWER' | translate }} 3</label>
-              <input type="text" id="r{{ question }}4-{{ i }}" name="r{{ question }}4-{{ i }}" required 
+              <input class="option" type="text" id="r{{ question }}4-{{ i }}" name="r{{ question }}4-{{ i }}" required 
                      [ngModel]="getOptionValue('Wrong answer 3', i)" (ngModelChange)="updateOptionValue($event, 'Wrong answer 3', i)">
 
               </div>
@@ -30,10 +30,22 @@
               </div>
        </div>
 
+       <div class="date-picking">
+              <mat-form-field>
+                     <label>{{ 'TEST_DATE' | translate }}</label>
+                     <input matInput [matDatepicker]="picker">
+                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                     <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+
+              <input class="time-input" type="text" [(ngModel)]="selectedTime">
+       </div>
+
        <hr>
        <div class="center">
               <button type="button" (click)="createTest()">{{ 'CREATE_TEST' | translate }}</button>
        </div>
        </form>
        </div>
+       
 </div>

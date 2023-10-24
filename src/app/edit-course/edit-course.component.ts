@@ -7,7 +7,7 @@ import { ExcelService } from '../_services/excel.service';
 @Component({
   selector: 'app-edit-course',
   templateUrl: './edit-course.component.html',
-  styleUrls: ['./edit-course.component.css']
+  styleUrls: ['./edit-course.component.css'],
 })
 export class EditCourseComponent {
 

@@ -10,6 +10,16 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 
+import { MatSliderModule } from "@angular/material/slider"
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from "@angular/material/input";
+
+import { DateTimePickerModule } from "@syncfusion/ej2-angular-calendars"
+
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { CoursePageComponent } from './course-page/course-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
@@ -22,6 +32,7 @@ import { CreateTestComponent } from './create-test/create-test.component';
 import { AdminCourseManageComponent } from './admin-course-manage/admin-course-manage.component';
 import { AdminManageComponent } from './admin-manage/admin-manage.component';
 import { ExcelService } from './_services/excel.service';
+import { MatIconModule } from '@angular/material/icon';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -48,9 +59,18 @@ export function HttpLoaderFactory(http: HttpClient) {
 
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    FormsModule,
+    MatSliderModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    DateTimePickerModule,
+    MatIconModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -60,7 +80,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       defaultLanguage: 'sr'
     })
   ],
-  providers: [authInterceptorProviders, ExcelService],
+  providers: [authInterceptorProviders, ExcelService, MatDatepickerModule, MatNativeDateModule, {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

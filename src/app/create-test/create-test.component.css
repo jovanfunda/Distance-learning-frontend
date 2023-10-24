@@ -9,8 +9,8 @@ label {
     justify-content: center;
     align-items: center;
 }
-    
-input, textarea {
+
+.option, textarea {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -73,4 +73,22 @@ input[type="text"] {
 
 .invisible {
     display:none;
+}
+
+mat-form-field {
+    width: 180px;
+    height: 100px;
+}
+
+.time-input {
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 1em;
+    max-width: 150px;
+}
+
+.date-picking {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }

@@ -50,5 +50,7 @@
     "ENGLISH":"English",
     "SERBIAN":"Serbian",
     "COURSE_FINISHED":"You completed this course, final score: ",
-    "DOWNLOAD_DATA":"Download data from enrolled students"
+    "DOWNLOAD_DATA":"Download data from enrolled students",
+    "TEST_DATE":"Test date",
+    "COURSE_SEARCH":"Search for a course"
 }
