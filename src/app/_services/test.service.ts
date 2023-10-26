@@ -15,7 +15,7 @@ export class TestService {
 
   constructor(private http: HttpClient) { }
 
-  hasTest(courseID: BigInteger): Observable<any> {
+  getTestData(courseID: BigInteger): Observable<any> {
     return this.http.get(AUTH_API + `test/${courseID}`, httpOptions);
   }
 

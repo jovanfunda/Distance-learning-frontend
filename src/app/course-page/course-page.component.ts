@@ -4,7 +4,6 @@ import { Course } from '../_models/course';
 import { LectureDTO } from '../_models/lectureDTO';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TestService } from '../_services/test.service';
-import { TokenStorageService } from '../_services/token-storage.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,6 +17,8 @@ export class CoursePageComponent {
   lectures = [] as LectureDTO[];
   courseHasTest = false;
   finishedTest = false;
+  isTestActive = false;
+  startDate!: Date;
   score = 0;
 
   constructor(private courseService: CourseService, private testService: TestService, private sanitizer: DomSanitizer, private router: Router) {
@@ -35,9 +36,12 @@ export class CoursePageComponent {
       }
     })
 
-    this.testService.hasTest(this.course.id).subscribe({
+    this.testService.getTestData(this.course.id).subscribe({
       next: (data) => {
-          this.courseHasTest = data;
+        console.log(data);
+          this.courseHasTest = data.doesTestExist;
+          this.startDate = new Date(data.startDate);
+          this.testActive();
       },
       error: (err) => {
         console.log(err);
@@ -46,7 +50,6 @@ export class CoursePageComponent {
 
     this.testService.finishedTest(this.course.id).subscribe({
       next: (data) => {
-        console.log(data);
         this.finishedTest = data.finishedTest;
         this.score = data.score;
       }
@@ -55,5 +58,16 @@ export class CoursePageComponent {
 
   startTest() {
     this.router.navigate(['test', this.course.id]);
+  }
+
+  testActive() {
+    if(new Date().getTime() > this.startDate.getTime()) {
+      const now = new Date();
+      now.setHours(now.getHours() - 1);
+      if(now.getTime() < this.startDate.getTime()) {
+        this.isTestActive = true;
+        return;
+      }
+    }
   }
 }

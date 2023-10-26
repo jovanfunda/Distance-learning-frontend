@@ -52,5 +52,7 @@
     "COURSE_FINISHED":"You completed this course, final score: ",
     "DOWNLOAD_DATA":"Download data from enrolled students",
     "TEST_DATE":"Test date",
-    "COURSE_SEARCH":"Search for a course"
+    "COURSE_SEARCH":"Search for a course",
+    "START_TIME":"Starting time",
+    "TEST_ENDED":"Time for test has passed."
 }

@@ -16,9 +16,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from "@angular/material/input";
 
-import { DateTimePickerModule } from "@syncfusion/ej2-angular-calendars"
-
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { CoursePageComponent } from './course-page/course-page.component';
@@ -69,7 +69,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
-    DateTimePickerModule,
+    NgxMaterialTimepickerModule,
     MatIconModule,
     TranslateModule.forRoot({
       loader: {

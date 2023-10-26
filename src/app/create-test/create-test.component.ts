@@ -19,10 +19,10 @@ export class CreateTestComponent {
   wrongAnswerValues: string[] = [];
 
   startDate!: Date;
-  finishDate!: Date;
-  selectedTime!: string;
+  time!: string;
 
   constructor(private courseService: CourseService) {
+    this.time = "12:00 AM";
     this.course = history.state.course;
   }
 
@@ -55,9 +55,8 @@ export class CreateTestComponent {
       questions.push(quest)
     }
 
-    this.courseService.createTest(this.course.id, questions).subscribe({
+    this.courseService.createTest(this.course.id, questions, this.startDate, this.time).subscribe({
       next: (data) => {
-        console.log(data)
         window.alert("Uspesno kreiran test za kurs " + this.course.name)
       },
       error: (err) => {

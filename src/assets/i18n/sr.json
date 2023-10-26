@@ -51,5 +51,7 @@
     "COURSE_FINISHED":"Zavrsio si ovaj kurs, krajnji rezultat: ",
     "DOWNLOAD_DATA":"Preuzmi podatke o studentima koji slusaju ovaj kurs",
     "TEST_DATE":"Dan testa",
-    "COURSE_SEARCH":"Pretraga kurseva"
+    "COURSE_SEARCH":"Pretraga kurseva",
+    "START_TIME":"Satnica testa",
+    "TEST_ENDED":"Vreme za test je zavrseno"
 }

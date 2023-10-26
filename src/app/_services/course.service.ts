@@ -55,8 +55,8 @@ export class CourseService {
     return this.http.post(AUTH_API + "lecture/create", { course: course, title: lecture.title, videoURL: lecture.videoURL, data: lecture.data }, httpOptions)
   }
 
-  createTest(courseID: BigInteger, questions: Question[]): Observable<any> {
-    return this.http.post(AUTH_API + "test/create", {courseID, questions}, httpOptions)
+  createTest(courseID: BigInteger, questions: Question[], startDate: Date, time: string): Observable<any> {
+    return this.http.post(AUTH_API + "test/create", {courseID, questions, startDate, time}, httpOptions)
   }
 
   deleteCourse(courseID: BigInteger): Observable<any> {

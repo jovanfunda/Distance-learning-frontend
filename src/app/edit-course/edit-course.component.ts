@@ -26,9 +26,9 @@ export class EditCourseComponent {
   }
 
   deleteTestAlert() {
-    this.testService.hasTest(this.course.id).subscribe({
-      next: (hasCourse) => {
-        if(hasCourse) {
+    this.testService.getTestData(this.course.id).subscribe({
+      next: (data) => {
+        if(data.doesTestExist) {
           var confirm = window.confirm('Ukoliko zelite da kreirate test, postojeci test ce biti izbrisan');
 
           if (confirm) {
