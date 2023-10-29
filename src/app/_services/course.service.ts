@@ -39,33 +39,32 @@ export class CourseService {
     return this.http.get<any>(AUTH_API + `course/${id}`, httpOptions);
   }
 
-  enrollCourse(course: Course): Observable<any> {
-    return this.http.put(AUTH_API + 'course/startEnrollment', course.name, httpOptions);
+  enrollCourse(courseID: BigInteger): Observable<any> {
+    return this.http.put(AUTH_API + 'course/startEnrollment', courseID, httpOptions);
   }
 
   getLectures(courseID: BigInteger): Observable<any> {
-    return this.http.get(AUTH_API + "lecture/" + courseID, httpOptions);
+    return this.http.get(AUTH_API + `lecture/${courseID}`, httpOptions);
   }
 
   createCourse(courseName: string): Observable<any> {
     return this.http.post(AUTH_API + "course/create", courseName, httpOptions)
   }
 
-  createLecture(lecture: LectureDTO, course: string): Observable<any> {
-    return this.http.post(AUTH_API + "lecture/create", { course: course, title: lecture.title, videoURL: lecture.videoURL, data: lecture.data }, httpOptions)
+  createLecture(lecture: LectureDTO, courseID: BigInteger): Observable<any> {
+    return this.http.post(AUTH_API + "lecture/create", { courseID: courseID, title: lecture.title, videoURL: lecture.videoURL, data: lecture.data }, httpOptions)
   }
 
-  createTest(courseID: BigInteger, questions: Question[], startDate: Date, time: string): Observable<any> {
-    return this.http.post(AUTH_API + "test/create", {courseID, questions, startDate, time}, httpOptions)
+  createTest(lectureID: BigInteger, questions: Question[], startDate: Date, time: string): Observable<any> {
+    return this.http.post(AUTH_API + "test/create", {lectureID, questions, startDate, time}, httpOptions)
   }
 
   deleteCourse(courseID: BigInteger): Observable<any> {
-    console.log(AUTH_API + "course/delete/" + courseID)
-    return this.http.delete(AUTH_API + "course/delete/" + courseID, httpOptions)
+    return this.http.delete(AUTH_API + `course/delete/${courseID}`, httpOptions)
   }
 
-  assignProfessor(email: string, courseName: string): Observable<any> {
-    return this.http.put(AUTH_API + "course/changeOwnership", {newOwnerEmail:email, courseName:courseName}, httpOptions)
+  assignProfessor(email: string, courseID: BigInteger): Observable<any> {
+    return this.http.put(AUTH_API + "course/changeOwnership", {newOwnerEmail:email, courseID:courseID}, httpOptions)
   }
 
   changeCourseDescription(courseID: BigInteger, courseDescription: string, coursePictureURL: string): Observable<any> {

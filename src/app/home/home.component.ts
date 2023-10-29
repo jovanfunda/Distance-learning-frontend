@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
   }
 
   enrollCourse(course: Course) {
-    this.courseService.enrollCourse(course).subscribe({
+    this.courseService.enrollCourse(course.id).subscribe({
       next: () => {
         this.courseService.enrolledCourses.push(course);
         this.courseService.notEnrolledCourses = this.courseService.notEnrolledCourses.filter(item => item.id != course.id)

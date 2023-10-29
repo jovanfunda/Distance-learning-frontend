@@ -15,6 +15,7 @@ import { CreateLectureComponent } from './create-lecture/create-lecture.componen
 import { CreateTestComponent } from './create-test/create-test.component';
 import { AdminCourseManageComponent } from './admin-course-manage/admin-course-manage.component'
 import { AdminManageComponent } from './admin-manage/admin-manage.component';
+import { ChooseLectureComponent } from './choose-lecture/choose-lecture.component';
 
 
 const routes: Routes = [
@@ -24,13 +25,14 @@ const routes: Routes = [
   { path: 'course/:id', component: CoursePageComponent },
   { path: 'manageCourses', component: CourseManageComponent },
   { path: 'editCourse/:id', component: EditCourseComponent },
-  { path: 'test/:courseID', component: TestPageComponent },
+  { path: 'test/:lectureID', component: TestPageComponent },
   { path: 'admin', component: AdminPageComponent, canActivate: [AdminGuard] },
   { path: 'details/:courseID', component: CourseDetailsChangeComponent },
   { path: 'createLecture/:courseID', component: CreateLectureComponent },
-  { path: 'createTest/:courseID', component: CreateTestComponent },
+  { path: 'createTest/:lectureID', component: CreateTestComponent },
   { path: 'adminCourseManage', component: AdminCourseManageComponent },
   { path: 'adminManager', component: AdminManageComponent },
+  { path: 'chooseLecture/:courseID', component: ChooseLectureComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

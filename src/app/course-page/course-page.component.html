@@ -11,18 +11,18 @@
             <div class="text" *ngIf="lecture.data">
                 <p>{{ lecture.data }}</p>
             </div>
+
+            <div class="center-container" *ngIf="!lecture.testFinished && lecture.hasTest">
+                <button *ngIf="testActive(lecture)" (click)="startTest(lecture.id)" class="start-button">{{ 'CLICK_TO_START_TEST' | translate}}</button>
+            </div>
+
+            <div class="center-container" *ngIf="!lecture.testFinished && lecture.hasTest">
+                <p *ngIf="!testActive(lecture)">{{ 'TEST_ENDED' | translate }}</p>
+            </div>
+            
+            <div class="center-container" *ngIf="lecture.testFinished && lecture.hasTest">
+                <p>{{ 'COURSE_FINISHED' | translate }} {{ lecture.score }}/5</p>
+            </div>
         </div>
     </div>
-</div>
-
-<div class="center-container" *ngIf="!finishedTest && isTestActive && courseHasTest">
-    <button *ngIf="courseHasTest" (click)="startTest()" class="start-button">{{ 'CLICK_TO_START_TEST' | translate}}</button>
-</div>
-
-<div class="center-container" *ngIf="!finishedTest && !isTestActive && courseHasTest">
-    <p>{{ 'TEST_ENDED' | translate }}</p>
-</div>
-
-<div class="center-container" *ngIf="finishedTest" && courseHasTest>
-    <p>{{ 'COURSE_FINISHED' | translate }} {{ score }}/5</p>
 </div>

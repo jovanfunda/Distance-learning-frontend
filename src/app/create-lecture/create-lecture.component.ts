@@ -14,10 +14,15 @@ export class CreateLectureComponent {
   course: Course;
   lectures = [] as LectureDTO[];
   newLecture: LectureDTO = {
+    id: 0 as unknown as BigInteger,
     title: '',
     videoURL: '',
     data: '',
-    safeURL: ''
+    safeURL: '',
+    hasTest: false,
+    testFinished: false,
+    score: 0,
+    testStartDate: new Date()
   };
 
   constructor(private courseService: CourseService, private sanitizer: DomSanitizer) {
@@ -33,7 +38,7 @@ export class CreateLectureComponent {
    }
 
   createLecture() {
-    this.courseService.createLecture(this.newLecture, this.course.name).subscribe({
+    this.courseService.createLecture(this.newLecture, this.course.id).subscribe({
       next: () => {
         this.newLecture.safeURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.newLecture.videoURL)
         this.lectures.push({ ... this.newLecture });

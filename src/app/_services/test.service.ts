@@ -15,27 +15,31 @@ export class TestService {
 
   constructor(private http: HttpClient) { }
 
-  getTestData(courseID: BigInteger): Observable<any> {
-    return this.http.get(AUTH_API + `test/${courseID}`, httpOptions);
+  getTestData(testID: BigInteger): Observable<any> {
+    return this.http.get(AUTH_API + `test/${testID}`, httpOptions);
   }
 
-  deleteTest(courseID: BigInteger): Observable<any> {
-    return this.http.delete(AUTH_API + `test/${courseID}`, httpOptions);
+  getQuestionsForTest(lectureID: number): Observable<any> {
+    return this.http.get(AUTH_API + `test/questions/${lectureID}`, httpOptions);
   }
 
-  getQuestionsForTest(courseID: number): Observable<any> {
-    return this.http.get(AUTH_API + `test/questions/${courseID}`, httpOptions);
+  submitScore(lectureID: number, score: number): Observable<any> {
+    return this.http.put(AUTH_API + 'test/submitScore', {lectureID, score}, httpOptions);
   }
 
-  submitScore(courseID: number, score: number): Observable<any> {
-    return this.http.put(AUTH_API + 'test/submitScore', {courseID, score}, httpOptions);
-  }
-
-  finishedTest(courseID: BigInteger): Observable<any> {
-    return this.http.get(AUTH_API + `test/didFinishTest/${courseID}`, httpOptions);
+  finishedTest(lectureID: BigInteger): Observable<any> {
+    return this.http.get(AUTH_API + `test/didFinishTest/${lectureID}`, httpOptions);
   }
 
   getDataForDownload(courseID: BigInteger): Observable<any> {
     return this.http.get(AUTH_API + `test/data/${courseID}`, httpOptions);
+  }
+
+  lectureHasTest(lectureID: BigInteger): Observable<any> {
+    return this.http.get(AUTH_API + `test/hasTest/${lectureID}`, httpOptions);
+  }
+
+  deleteTest(lectureID: BigInteger): Observable<any> {
+    return this.http.delete(AUTH_API + `test/${lectureID}`, httpOptions)
   }
 }

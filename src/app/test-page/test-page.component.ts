@@ -14,15 +14,15 @@ export class TestPageComponent {
   questions = [] as Question[];
   currentQuestionIndex = 0;
   testAnswer = [] as TestAnswer[];
-  courseID = 0;
   score = 0;
+  lectureID!: number;
 
   constructor(private route: ActivatedRoute, private testService: TestService, private router: Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.courseID = +params.get('courseID')!;
-      this.testService.getQuestionsForTest(this.courseID).subscribe({
+      this.lectureID = +params.get('lectureID')!;
+      this.testService.getQuestionsForTest(this.lectureID).subscribe({
         next: (data) => {
           this.questions = data;
           this.questions.forEach(question => {
@@ -62,7 +62,7 @@ export class TestPageComponent {
       }
     });
 
-    this.testService.submitScore(this.courseID, this.score).subscribe({
+    this.testService.submitScore(this.lectureID, this.score).subscribe({
       next: () => {
         window.alert("Zavrsen test, tvoj broj poena je: " + this.score);
         this.router.navigate(['/home']);

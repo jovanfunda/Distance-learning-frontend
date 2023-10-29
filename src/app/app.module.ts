@@ -33,6 +33,7 @@ import { AdminCourseManageComponent } from './admin-course-manage/admin-course-m
 import { AdminManageComponent } from './admin-manage/admin-manage.component';
 import { ExcelService } from './_services/excel.service';
 import { MatIconModule } from '@angular/material/icon';
+import { ChooseLectureComponent } from './choose-lecture/choose-lecture.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -55,6 +56,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CreateTestComponent,
     AdminCourseManageComponent,
     AdminManageComponent,
+    ChooseLectureComponent,
   ],
 
   imports: [

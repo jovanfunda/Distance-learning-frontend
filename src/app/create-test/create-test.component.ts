@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CourseService } from '../_services/course.service';
 import { Question } from '../_models/question';
-import { Course } from '../_models/course';
+import { LectureDTO } from '../_models/lectureDTO';
 
 @Component({
   selector: 'app-create-test',
@@ -10,7 +10,7 @@ import { Course } from '../_models/course';
 })
 export class CreateTestComponent {
 
-  course: Course;
+  lecture: LectureDTO;
   questions = ['1', '2', '3', '4', '5']
   currentQuestionIndex = 0;
 
@@ -22,8 +22,7 @@ export class CreateTestComponent {
   time!: string;
 
   constructor(private courseService: CourseService) {
-    this.time = "12:00 AM";
-    this.course = history.state.course;
+    this.lecture = history.state.lecture;
   }
 
   moveToQuestion(index: number) {
@@ -55,9 +54,9 @@ export class CreateTestComponent {
       questions.push(quest)
     }
 
-    this.courseService.createTest(this.course.id, questions, this.startDate, this.time).subscribe({
-      next: (data) => {
-        window.alert("Uspesno kreiran test za kurs " + this.course.name)
+    this.courseService.createTest(this.lecture.id, questions, this.startDate, this.time).subscribe({
+      next: () => {
+        window.alert("Uspesno kreiran test za lekciju " + this.lecture.title)
       },
       error: (err) => {
         console.log(err);
@@ -82,16 +81,4 @@ export class CreateTestComponent {
       this.wrongAnswerValues[i * 3 + optionIndex] = newValue;
     }
   }
-
-  changeCourseDescription() {
-    this.courseService.changeCourseDescription(this.course.id, this.course.description, this.course.pictureURL).subscribe({
-      next: (data) => {
-        
-      }, 
-      error: (err) => {
-        console.log(err);
-      }
-    })
-  }
-
 }

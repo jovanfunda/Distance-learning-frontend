@@ -1,0 +1,7 @@
+<h2 class="title">{{ 'CHOOSE_LECTURE' | translate }}</h2>
+
+<div class="lecture-list">
+    <div *ngFor="let lecture of lectures" class="lecture" (click)="createTest(lecture)">
+        <h2 class="lecture-name">{{ lecture.title }}</h2>
+    </div>
+</div>

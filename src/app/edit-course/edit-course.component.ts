@@ -25,21 +25,8 @@ export class EditCourseComponent {
     this.router.navigate(['/createLecture', this.course.id], {state: {course: this.course}});
   }
 
-  deleteTestAlert() {
-    this.testService.getTestData(this.course.id).subscribe({
-      next: (data) => {
-        if(data.doesTestExist) {
-          var confirm = window.confirm('Ukoliko zelite da kreirate test, postojeci test ce biti izbrisan');
-
-          if (confirm) {
-            this.testService.deleteTest(this.course.id).subscribe();
-            this.router.navigate(['/createTest', this.course.id], {state: {course: this.course}});
-          }
-        } else {
-          this.router.navigate(['/createTest', this.course.id], {state: {course: this.course}});
-        }
-      }
-    });
+  createTest() {
+    this.router.navigate(['/chooseLecture', this.course.id], {state: {course: this.course}});
   }
 
   downloadData() {

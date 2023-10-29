@@ -1,0 +1,27 @@
+.lecture-list {
+    display: flex;
+    flex-direction: column;
+    max-width: 67%;
+    gap: 20px;
+}
+  
+.lecture {
+    flex-basis: calc(33.33% - 20px);
+    background-color: #f8f9fa;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    display: flex;
+    margin: 10px;
+    margin-left: 30px;
+}
+
+.lecture:hover {
+    background-color: #e9ecef;  
+}
+
+.lecture-name {
+    font-size: 1.2em;
+    margin: 10px 0;
+}

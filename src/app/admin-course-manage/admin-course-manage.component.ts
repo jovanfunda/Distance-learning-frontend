@@ -69,7 +69,7 @@ export class AdminCourseManageComponent {
   }
 
   assignProfessor() {
-    this.courseService.assignProfessor(this.selectedProfessorForAssignment.email, this.selectedCourseForAssignment.name).subscribe({
+    this.courseService.assignProfessor(this.selectedProfessorForAssignment.email, this.selectedCourseForAssignment.id).subscribe({
       next: () => {
         window.alert("Kurs " + this.selectedCourseForAssignment.name + " uspesno dodeljen profesoru " + this.selectedProfessorForAssignment.email);
       }
