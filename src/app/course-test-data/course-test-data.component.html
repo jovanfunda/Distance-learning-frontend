@@ -1,0 +1,19 @@
+<button (click)="showComponent = 'Data'">Data</button>
+<button (click)="showComponent = 'Filter by student'">Filter by student</button>
+<button (click)="showComponent = 'Filter by lecture'">Filter by lecture</button>
+
+<ng-container *ngIf="showComponent === 'Data'; then data"></ng-container>
+<ng-container *ngIf="showComponent === 'Filter by student'; then filter_by_student"></ng-container>
+<ng-container *ngIf="showComponent === 'Filter by lecture'; then filter_by_lecture"></ng-container>
+
+<ng-template #data>
+    <app-all-test-data></app-all-test-data>
+</ng-template>
+
+<ng-template #filter_by_student>
+    <app-per-student-data></app-per-student-data>
+</ng-template>
+
+<ng-template #filter_by_lecture>
+    <app-per-lecture-data></app-per-lecture-data>
+</ng-template>

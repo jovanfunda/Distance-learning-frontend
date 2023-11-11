@@ -16,7 +16,7 @@ import { CreateTestComponent } from './create-test/create-test.component';
 import { AdminCourseManageComponent } from './admin-course-manage/admin-course-manage.component'
 import { AdminManageComponent } from './admin-manage/admin-manage.component';
 import { ChooseLectureComponent } from './choose-lecture/choose-lecture.component';
-
+import { CourseTestDataComponent } from './course-test-data/course-test-data.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -33,6 +33,7 @@ const routes: Routes = [
   { path: 'adminCourseManage', component: AdminCourseManageComponent },
   { path: 'adminManager', component: AdminManageComponent },
   { path: 'chooseLecture/:courseID', component: ChooseLectureComponent },
+  { path: 'courseTestData/:courseID', component: CourseTestDataComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

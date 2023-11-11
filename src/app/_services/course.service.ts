@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Course } from '../_models/course';
 import { LectureDTO } from '../_models/lectureDTO';
@@ -29,6 +29,10 @@ export class CourseService {
 
   getEnrolledCourses(): Observable<any> {
     return this.http.get(AUTH_API + "course/enrolledCourses", httpOptions)
+  }
+
+  getEnrolledStudents(courseID: BigInteger): Observable<any> {
+    return this.http.get(AUTH_API + `course/getEnrolledStudents/${courseID}`, httpOptions);
   }
 
   getMyOwnCourses(): Observable<any> {
@@ -69,5 +73,13 @@ export class CourseService {
 
   changeCourseDescription(courseID: BigInteger, courseDescription: string, coursePictureURL: string): Observable<any> {
     return this.http.put(AUTH_API + "course/changeData", {courseID, courseDescription, coursePictureURL}, httpOptions);
+  }
+
+  getAllScores(email: string, courseID: BigInteger): Observable<any> {
+    const params = new HttpParams()
+      .set('email', email)
+      .set('courseID', parseInt(courseID.toString()));
+
+    return this.http.get(AUTH_API + `course/getAllScores`, { params: params, headers: httpOptions.headers });
   }
 }

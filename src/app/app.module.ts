@@ -34,6 +34,12 @@ import { AdminManageComponent } from './admin-manage/admin-manage.component';
 import { ExcelService } from './_services/excel.service';
 import { MatIconModule } from '@angular/material/icon';
 import { ChooseLectureComponent } from './choose-lecture/choose-lecture.component';
+import { CourseTestDataComponent } from './course-test-data/course-test-data.component';
+import { PerStudentDataComponent } from './course-test-data/per-student-data/per-student-data.component';
+import { PerLectureDataComponent } from './course-test-data/per-lecture-data/per-lecture-data.component';
+import { AllTestDataComponent } from './course-test-data/all-test-data/all-test-data.component';
+import { NgChartsModule } from 'ng2-charts';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -57,6 +63,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminCourseManageComponent,
     AdminManageComponent,
     ChooseLectureComponent,
+    CourseTestDataComponent,
+    PerStudentDataComponent,
+    PerLectureDataComponent,
+    AllTestDataComponent,
   ],
 
   imports: [
@@ -80,7 +90,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
       defaultLanguage: 'sr'
-    })
+    }),
+    NgChartsModule
   ],
   providers: [authInterceptorProviders, ExcelService, MatDatepickerModule, MatNativeDateModule, {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent]

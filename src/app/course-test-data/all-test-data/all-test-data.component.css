@@ -1,0 +1,33 @@
+#table-container ::ng-deep table {
+    margin-top: 50px;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+#center {
+    align-items: center;
+    justify-content: center;
+}
+  
+  #table-container ::ng-deep th {
+    background-color: #3498db;
+    color: #fff;
+    padding: 15px;
+    text-align: left;
+  }
+  
+  #table-container ::ng-deep tr {
+    border-bottom: 1px solid #3498db;
+  }
+  
+  #table-container ::ng-deep tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #table-container ::ng-deep td {
+    padding: 10px;
+  }
+  
+  #table-container ::ng-deep tr:hover {
+    background-color: #e0e0e0;
+  }

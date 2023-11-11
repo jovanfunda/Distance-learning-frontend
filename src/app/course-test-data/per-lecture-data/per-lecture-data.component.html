@@ -1,0 +1,15 @@
+<div *ngFor="let lecture of lectures">
+    <h3 (click)="showLectureData(lecture)">{{ lecture }}</h3>
+</div>
+
+<div *ngIf="show == true">
+    <canvas baseChart [data]="lineChartData" [type]="lineChartType"></canvas>
+    <table border="1">
+        <tr>
+            <th *ngFor="let label of lineChartData.labels">{{ label }}</th>
+        </tr>
+        <tr *ngFor="let d of lineChartData.datasets; let i = index">
+            <td *ngFor="let label of lineChartData.labels; let j = index">{{ d && d.data[j] }}</td>
+        </tr>
+    </table>
+</div>
