@@ -1,27 +1,25 @@
 # LearningFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+To run a project you need to install **npm and node.js** in your local machine
 
-## Development server
+When you have npm installed, make sure to run _**npm install -g @angular/cli**_ to install angular.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+After cloning the project, make sure to run _**npm install**_ inside the project repository to install all the dependencies.
 
-## Code scaffolding
+To run project, use _**ng serve**_ and navigate to `http://localhost:4200`. The application will automatically reload if you change any of the source files.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Make sure to run backend server to fetch all the data.
 
-## Build
+Home page: ![home page](https://github.com/jovanfunda/Distance-learning-frontend/assets/35435028/9c399880-6194-44ae-b317-012c16f6f36c)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Course page: ![course page preview](https://github.com/jovanfunda/Distance-learning-frontend/assets/35435028/1410fdb6-3775-4344-9672-0baa9aee18ab)
 
-## Running unit tests
+Manage courses: ![manage courses](https://github.com/jovanfunda/Distance-learning-frontend/assets/35435028/fe7d332f-cd3d-4b4c-853e-d86e8b9015f8)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Create test: ![create test](https://github.com/jovanfunda/Distance-learning-frontend/assets/35435028/6a5c0689-9fe8-4a8e-96f1-bcf327681a10)
 
-## Running end-to-end tests
+Scores: ![scores](https://github.com/jovanfunda/Distance-learning-frontend/assets/35435028/c1a665c2-42a5-48b0-b72e-6ae7e847a092)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Admin panel: ![admin panel](https://github.com/jovanfunda/Distance-learning-frontend/assets/35435028/d844f7ab-85b2-4627-a281-fc889929f0d9)
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Backend: `https://github.com/jovanfunda/Distance-learning-backend/`
