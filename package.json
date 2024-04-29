@@ -22,8 +22,6 @@
     "@angular/router": "^16.2.0",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
-    "@syncfusion/ej2-angular-calendars": "^23.1.41",
-    "@syncfusion/ej2-material-theme": "~23.1.41",
     "chart.js": "^4.4.0",
     "luxon": "^3.4.3",
     "ng2-charts": "^4.1.1",
